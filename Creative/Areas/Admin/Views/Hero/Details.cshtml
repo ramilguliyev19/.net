@@ -1,0 +1,47 @@
+@model Hero
+
+<div class="container">
+    <div class="row justify-content-center py-5">
+        <div class="col-12 px-3">
+            <div class="d-flex justify-content-between align-items-center">
+                <a class="btn btn-success my-3" asp-area="Admin" asp-controller="Hero" asp-action="Create">Create</a>
+                <a asp-area="Admin" asp-controller="Hero" asp-action="Index" class="btn btn-secondary my-3">Cancel</a>
+            </div>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th >#</th>
+                    <th >Image</th>
+                    <th >Title</th>
+                    <th >Subtitle</th>
+                    <th >Redirect url</th>
+                    <th >Created Date</th>
+                    <th >Updated Date</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th>@Model.Id</th>
+                    <td style="width: 10%;">
+                        <img class="img-fluid" src="~/uploads/hero/@Model.ImageUrl" alt="hero">
+                    </td>
+                    <td>@Html.Raw(Model.Title)</td>
+                    <td>@Html.Raw(Model.Title)</td>
+                    <td>@Model.RedirectUrl</td>
+                    <td>@Model.CreatedDate</td>
+                    <td>@Model.UpdatedDate</td>
+                    <td>
+                        <form method="post">
+                            <button class="btn btn-@(!Model.IsActive ? "success" : "danger") my-2" asp-area="Admin" asp-controller="Hero" asp-action="Toggle" asp-route-id="@Model.Id">@(!Model.IsActive ? "Activated" : "Deactivated")</button>
+                        </form>
+                        <a class="btn btn-warning" asp-area="Admin" asp-controller="Hero" asp-action="Update" asp-route-id="@Model.Id">Update</a>
+                        <form method="post">
+                            <button class="btn btn-danger my-2" asp-area="Admin" asp-controller="Hero" asp-action="Delete" asp-route-id="@Model.Id">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

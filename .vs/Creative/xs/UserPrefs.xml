@@ -1,0 +1,14 @@
+﻿<Properties StartupConfiguration="{DFAB7D05-24CB-4501-BA26-67D90A64E414}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Business/Implementations/HeroRepository.cs">
+    <Files>
+      <File FileName="Business/Implementations/HeroRepository.cs" Line="29" Column="52" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Creative PreferredExecutionTarget="/Applications/Safari.app" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

@@ -1,0 +1,22 @@
+@model Product
+
+<tr>
+
+    <th>@Model.Id</th>
+    <td>
+        @Html.Raw(Model.Icon);
+    </td>
+    <td>@Html.Raw(Model.Title)</td>
+
+    <td>@Model.Description</td>
+    <td>
+        <a class="btn btn-primary my-2" asp-area="Admin" asp-controller="Hero" asp-action="Details" asp-route-id="@Model.Id">Details</a>
+        <form method="post">
+            <button class="btn btn-@(!Model.IsActive ? "success" : "danger") my-2" asp-area="Admin" asp-controller="Hero" asp-action="Toggle" asp-route-id="@Model.Id">@(!Model.IsActive ? "Activate" : "Deactivate")</button>
+        </form>
+        <a class="btn btn-warning" asp-area="Admin" asp-controller="Hero" asp-action="Update" asp-route-id="@Model.Id">Update</a>
+        <form method="post">
+            <button class="btn btn-danger my-2" asp-area="Admin" asp-controller="Hero" asp-action="Delete" asp-route-id="@Model.Id">Delete</button>
+        </form>
+    </td>
+</tr>

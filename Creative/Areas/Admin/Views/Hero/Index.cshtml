@@ -1,0 +1,48 @@
+@model Creative.ViewModels.HeroVM
+
+<div class="container">
+    <div class="row justify-content-center py-5">
+        <div class="col-10">
+            <a class="btn btn-success my-3"  asp-area="Admin" asp-controller="Hero" asp-action="Create">Create</a>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th >#</th>
+                    <th >Image</th>
+                    <th class="d-flex align-items-center">Title</th>
+                    <th >Redirect url</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var hero in Model.heroes)
+                {
+                    @Html.Partial("_PartialHeroIndex",hero)
+                }
+
+                </tbody>
+            </table>
+            <nav class="d-flex justify-content-center" aria-label="Page navigation example">
+                <ul id="hero-pagination" class="pagination">
+                    <li class="page-item before-btn">
+                        <a class="page-link" href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    @for (int i = 0; i < (Model.Length / 3) + (Model.Length % 3); i++)
+                    {
+                        <li class="page-item"><a class="page-link" asp-area="Admin" asp-controller="Hero" asp-action="Index" asp-route-skip="@(i * 3)">@(i + 1)</a></li>
+                    }
+                    <li class="page-item after-btn">
+                        <a class="page-link " href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+@section PaginationJS {
+    <script src="~/areas/admin/assets/js/index.js"></script>
+}

@@ -1,0 +1,48 @@
+@model Hero
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-10 py-5">
+           
+            <div class="card">
+                <div class="card-body">
+                    <form method="post" enctype="multipart/form-data" class="forms-sample">
+                        <div class="form-group my-3">
+                            <label asp-for="Title"></label>
+                            <textarea asp-for="Title" id="editor1" class="form-control" placeholder="Title"></textarea>
+                            <span class="text-danger" asp-validation-for="Title"></span>
+                        </div>
+                        <div class="form-group my-3">
+                            <label asp-for="SubTitle"></label>
+                            <textarea asp-for="SubTitle" id="editor2" class="form-control" placeholder="Subtitle"></textarea>
+                            <span class="text-danger" asp-validation-for="SubTitle"></span>
+                        </div>
+
+                        <div class="form-group my-3">
+                            <label asp-for="ImageFile"></label>
+                            <input asp-for="ImageFile" accept="image/*" class="form-control" placeholder="Image url">
+                            <span class="text-danger" asp-validation-for="ImageFile"></span>
+                        </div>
+
+                        <div class="form-group my-3">
+                            <label asp-for="RedirectUrl"></label>
+                            <input asp-for="RedirectUrl" class="form-control" placeholder="Redirect url">
+                            <span class="text-danger" asp-validation-for="RedirectUrl"></span>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary mr-2 my-3">Submit</button>
+                        <a class="btn btn-light" asp-area="Admin" asp-controller="Hero" asp-action="Index">Cancel</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section CkEditor {
+    <script src="https://cdn.ckeditor.com/ckeditor5/34.1.0/classic/ckeditor.js"></script>
+    <script >
+        ClassicEditor.create( document.querySelector( '#editor1' ));
+        ClassicEditor.create( document.querySelector( '#editor2' ));
+    </script>
+}
